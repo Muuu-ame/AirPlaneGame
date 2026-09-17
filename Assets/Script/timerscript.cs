@@ -19,7 +19,7 @@ public class timerscript : MonoBehaviour
     void Start()
     {
         timer = 0;
-        timerMax = random.Range(25f, 40f);
+        timerMax = random.Range(20f, 30f);
 
         // 最初はボタンを押せないようにする
         eventButton.interactable = false;
@@ -37,6 +37,12 @@ public class timerscript : MonoBehaviour
         timer += Time.deltaTime;
 
         timerText.text = Mathf.CeilToInt(timer).ToString();
+
+        // 10秒になったら文字を消す
+        if (timer >= 10f)
+        {
+            timerText.fontSize = 0;
+        }
     }
 
     IEnumerator StartGame()
@@ -50,7 +56,7 @@ public class timerscript : MonoBehaviour
         Destroy(byoudetyakurikuseyo3);    
 
         // 指示を消す
-        missionText.text = "";
+        missionText.rectTransform.position = new Vector2(100f, 1600f);
 
         // タイマー開始
         timer = 0f;
@@ -90,4 +96,3 @@ public class timerscript : MonoBehaviour
         SceneManager.LoadScene("osoi");
     }
 }
-

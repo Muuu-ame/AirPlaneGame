@@ -18,12 +18,23 @@ public class kaminari : MonoBehaviour
 
     public float spawnOffsetY = 0f;
 
+
     private Coroutine spawnRoutine;
+    public float initialDelay = 3f; // ‰Šú’x‰„ŽžŠÔ
+
 
     void Start()
     {
+        spawnRoutine = StartCoroutine(DelayedStart());
+    }
+    IEnumerator DelayedStart()
+    {
+        if (initialDelay > 0f)
+            yield return new WaitForSeconds(initialDelay);
+
         spawnRoutine = StartCoroutine(SpawnLoop());
     }
+
 
     IEnumerator SpawnLoop()
     {

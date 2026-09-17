@@ -18,6 +18,11 @@ public class hikoukiidou : MonoBehaviour
     private bool isMovingdown = false;
 
     private Rigidbody2D rb; // Rigidbody2Dコンポーネントへの参照
+
+    [Header("X軸制限")]
+    public float minX = -3f; // X軸の最小値
+    public float maxX = 3f;  // X軸の最大値
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,7 +38,14 @@ public class hikoukiidou : MonoBehaviour
         if (isMovingup) moveY = speed;
         else if (isMovingdown) moveY = -speed;
 
-        rb.linearVelocity = new Vector3(moveX, moveY);
+        // Rigidbody2D の速度を設定
+        rb.linearVelocity = new Vector2(moveX, moveY);
+
+        // X軸を minX ～ maxX の範囲に制限
+        Vector2 clampedPos = rb.position;
+        clampedPos.x = Mathf.Clamp(clampedPos.x, minX, maxX);
+        rb.position = clampedPos;
+
         float newTiltZ = Mathf.LerpAngle(transform.localEulerAngles.z, targetRotationZ, tiltSpeed * Time.fixedDeltaTime);
         transform.localRotation = Quaternion.Euler(0f, 0f, newTiltZ);
 
