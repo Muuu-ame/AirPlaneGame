@@ -56,7 +56,7 @@ public class timerscript : MonoBehaviour
         Destroy(byoudetyakurikuseyo3);    
 
         // 指示を消す
-        missionText.rectTransform.position = new Vector2(100f, 1600f);
+        missionText.rectTransform.position = new Vector2(70f, 700f);
 
         // タイマー開始
         timer = 0f;
