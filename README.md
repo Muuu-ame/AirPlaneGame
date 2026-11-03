@@ -13,14 +13,6 @@ https://unityroom.com/games/hikoukitimer
 - Git / GitHub
 - CLIP STUDIO PAINT（イラスト・素材制作）
 
-## 担当内容
-
-- ゲーム内のプログラム実装
-- 飛行機の操作・挙動の実装
-- ゲーム内イラスト・素材の制作
-
-※担当した内容に合わせて調整してください。
-
 ## 使用素材
 
 - 効果音：効果音ラボ「雷魔法4」  
